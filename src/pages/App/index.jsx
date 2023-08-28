@@ -1,4 +1,5 @@
 import {BrowserRouter, useRoutes} from "react-router-dom"
+import { ShoppingCartProvider } from "../../Context"
 import {Home} from "../Home"
 import {MyAccount} from "../MyAccount"
 import {MyOrder} from "../MyOrder"
@@ -6,9 +7,8 @@ import {Orders} from "../Orders"
 import {SingIn} from "../SingIn"
 import {NotFound} from "../NotFound"
 import {Navbar} from "../../Components/Navbar"
-import {Header} from "../../Components/Header"
+//import {Header} from "../../Components/Header"
 import {Layout} from "../../Components/Layout"
-import './App.css'
 
 const AppRoutes = () => {
   const routes = useRoutes([
@@ -25,13 +25,15 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar/>
-      <Header/>
-      <Layout>
-        <AppRoutes/>
-      </Layout>
-    </BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <Navbar/>
+        {/* <Header/> */}
+        <Layout>
+          <AppRoutes/>
+        </Layout>
+      </BrowserRouter>
+    </ShoppingCartProvider>
   )
 }
 
