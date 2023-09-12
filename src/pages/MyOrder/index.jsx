@@ -10,8 +10,6 @@ const MyOrder = () => {
   let id = params.id
   /* const currentPath = window.location.pathname
   let index = currentPath.substring(currentPath.lastIndexOf('/') + 1) */
-  
-  console.log({id});
 
     return (
       <>

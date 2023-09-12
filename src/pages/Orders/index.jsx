@@ -8,11 +8,11 @@ const Orders = () => {
 
   return (
     <div>
-      <div className="flex relative justify-center items-center w-80">
-        <h1>My Orders</h1>
+      <div className="flex relative justify-center items-center w-80 mb-4">
+        <h1 className=" font-medium text-xl">My Orders</h1>
       </div>
       {orderData?.map((order, index) => (
-        <Link key={index} to={`/my-orders/${index}`}>
+        <Link key={order.id} to={`/my-orders/${index}`}>
           <OrdesCard product={order}/>
         </Link>
       ))}
