@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { Card } from "../../Components/Card"
 import {ProductDetail} from "../../Components/ProductDetail"
-import { apiFakeApp } from "../../assets/apiUrl"
+import { apiFakeApp } from "../../utils/apiUrl"
 
-function Home() {
+const Home = () => {
   const [articleData, setArticleData] = useState([])
 
   const fetchData = async () => {
@@ -20,6 +20,7 @@ function Home() {
     fetchData()
   }, [])
   
+
   return (
     <div className="grid grid-cols-4 gap-4 w-full max-w-screen-lg">
       {articleData?.map(item => (
