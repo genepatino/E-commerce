@@ -3,14 +3,14 @@ import { ShoppingBagIcon } from '@heroicons/react/24/solid'
 import { ShoppingCartContext } from "../../Context"
 import { NavLink } from "react-router-dom"
 
+
 const leftNavbarList = [
   {to: '/', name: 'Shopi', className: 'font-semibold text-2xl', isLogo: true},
   {to: '/', name: 'All', className: ''},
-  {to: '/clothes', name: 'Clothes', className: ''},
+  {to: "/women", name: "Women's clothing", className: ''},
+  {to: "/men", name: "Men's clothing", className: ''},
+  {to: '/jewelery', name: 'Jewelery', className: ''},
   {to: '/electronics', name: 'Electronics', className: ''},
-  {to: '/sport', name: 'Sport', className: ''},
-  {to: '/toys', name: 'Toys', className: ''},
-  {to: '/others', name: 'Others', className: ''},
 ]
 
 const rigthNavbarList = [
@@ -20,7 +20,7 @@ const rigthNavbarList = [
 ]
 
 const Navbar = () => {
-  const { count } = useContext(ShoppingCartContext)
+  const { cartProducts, setSearchByCategory } = useContext(ShoppingCartContext)
   const activeStyle = 'underline underline-offset-4'
 
   return(
@@ -31,6 +31,7 @@ const Navbar = () => {
             <NavLink
               to={item.to}
               className={({ isActive }) => isActive && !item.isLogo ? activeStyle : undefined}
+              onClick={() => setSearchByCategory(item.name.toLowerCase())}
             >
               {item.name}
             </NavLink>
@@ -53,7 +54,7 @@ const Navbar = () => {
         )}
         <li className="flex items-center">
           <ShoppingBagIcon className="h-6 w-6 text-black" />
-          <div>{count}</div>
+          <div>{cartProducts.length}</div>
         </li>
       </ul>
     </nav>

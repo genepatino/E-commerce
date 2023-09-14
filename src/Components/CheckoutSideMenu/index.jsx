@@ -6,7 +6,7 @@ import { OrderCard } from "../OrderCard"
 import { totalProductsPrice } from "../../utils"
 
 const CheckoutSideMenu = () =>  {
-  const {isCheckoutSideMenuOpen, clouseCheckoutSideMenu, cartProducts, setCartProducts, orderData, setOrderData} = useContext(ShoppingCartContext)
+  const {isCheckoutSideMenuOpen, clouseCheckoutSideMenu, cartProducts, setCartProducts, orderData, setOrderData, setSearchByTitle} = useContext(ShoppingCartContext)
 
   const deleteProduct = (id) => {
     const keepProducts = cartProducts.filter((element) => element.id !== id)
@@ -28,6 +28,7 @@ const CheckoutSideMenu = () =>  {
     setOrderData([...orderData, orderToAdd])
     setCartProducts([])
     clouseCheckoutSideMenu()
+    setSearchByTitle("")
   }
 
   return(
